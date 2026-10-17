@@ -1,0 +1,50 @@
+erDiagram
+    Film ||--o{ Session : " "
+    Hall ||--o{ Session : " "
+    Hall ||--o{ Seat : " "
+    User ||--o{ Ticket : " "
+    Session ||--o{ Ticket : " "
+    Seat ||--o{ Ticket : " "
+
+    Film {
+        int id PK
+        varchar title
+        int duration
+    }
+
+    Hall {
+        int id PK
+        varchar name
+        int rows_count
+        int seats_per_row
+    }
+
+    Seat {
+        int id PK
+        int hall_id FK
+        int row_number
+        int seat_number
+    }
+
+    Session {
+        int id PK
+        int film_id FK
+        int hall_id FK
+        datetime start_time
+        decimal price
+    }
+
+    User {
+        int id PK
+        varchar username
+        varchar password
+        varchar email
+    }
+
+    Ticket {
+        int id PK
+        int user_id FK
+        int session_id FK
+        int seat_id FK
+        decimal price
+    }
