@@ -1,10 +1,9 @@
 erDiagram
     Film ||--o{ Session : " "
     Hall ||--o{ Session : " "
-    Hall ||--o{ Seat : " "
+    Hall ||--o{ Ticket : " "
     User ||--o{ Ticket : " "
     Session ||--o{ Ticket : " "
-    Seat ||--o{ Ticket : " "
 
     Film {
         int id PK
@@ -17,13 +16,6 @@ erDiagram
         varchar name
         int rows_count
         int seats_per_row
-    }
-
-    Seat {
-        int id PK
-        int hall_id FK
-        int row_number
-        int seat_number
     }
 
     Session {
@@ -45,6 +37,7 @@ erDiagram
         int id PK
         int user_id FK
         int session_id FK
-        int seat_id FK
+        int seat_number
+        int row_number
         decimal price
     }
