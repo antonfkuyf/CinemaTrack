@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>eea69570-b79b-4b08-bad2-c70fa3ec6fc1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>src\main.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,11 +21,42 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="src\init_db.py" />
+    <Compile Include="data\init_db.py" />
+    <Compile Include="main.py" />
+    <Compile Include="models\models.py" />
+    <Compile Include="repositories\film_repository.py" />
+    <Compile Include="repositories\hall_repository.py" />
+    <Compile Include="repositories\session_repository.py" />
+    <Compile Include="repositories\ticket_repository.py" />
+    <Compile Include="repositories\user_repository.py" />
+    <Compile Include="services\auth_service.py" />
+    <Compile Include="services\film_service.py" />
+    <Compile Include="services\hall_service.py" />
+    <Compile Include="services\session_service.py" />
+    <Compile Include="services\ticket_service.py" />
     <Compile Include="src\main.py" />
+    <Compile Include="ui\console.py" />
+    <Compile Include="ui\menu.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="data\" />
+    <Folder Include="diagrams\" />
+    <Folder Include="docs\" />
+    <Folder Include="models\" />
+    <Folder Include="models\__pycache__\" />
+    <Folder Include="repositories\" />
+    <Folder Include="services\" />
     <Folder Include="src\" />
+    <Folder Include="ui\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB.db" />
+    <Content Include="diagrams\ER.png" />
+    <Content Include="diagrams\er.txt" />
+    <Content Include="docs\UseCase.png" />
+    <Content Include="docs\use_case.puml" />
+    <Content Include="models\__pycache__\models.cpython-315.pyc" />
+    <Content Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
