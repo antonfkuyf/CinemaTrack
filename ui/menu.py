@@ -117,6 +117,19 @@ def view_my_tickets():
         return
     rows = [(t.ticket_id, t.session_id, t.row_number, t.seat_number) for t in tickets]
     console.show_table(["ID", "Сеанс", "Ряд", "Место"], rows)
+    if int(input("Хотите вернуть билет? (0/1): ")):
+        refund_ticket_menu()
+
+def refund_ticket_menu():
+    global current_user
+    tickets = ticket_service.get_user_tickets(current_user.user_id)
+    try:
+        choice = console.get_choice_by_nums([0]+[t.ticket_id for t in tickets])
+        if choice:
+            ticket_service.refund_ticket(choice)
+            print("Успешный возврат билета")
+    except Exception as e:
+        console.show_error(str(e))
 
 
 
