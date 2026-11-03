@@ -1,3 +1,5 @@
+from repositories import ticket_repository, session_repository, hall_repository
+from services import ticket_service
 def print_menu(menu_items):
     print("\n=== Меню ===")
     for i, item in enumerate(menu_items, 1):
@@ -34,3 +36,24 @@ def show_table(headers, rows):
     for row in rows:
         print(" | ".join(str(cell) for cell in row))
     print("-" * 60)
+
+def show_seats(session_id: int):
+    rows = ticket_repository.get_seats_by_session(session_id)
+    hall_id = session_repository.get_by_id(session_id).hall_id
+    rows_count = hall_repository.get_by_id(hall_id).rows_count
+    seats_per_row = hall_repository.get_by_id(hall_id).seats_per_row
+
+    seats = []
+    count_seats = ticket_service.count_seats(session_id)
+    if not count_seats:
+        raise ValueError("Мест больше нет(")
+    if True:
+        for i in range(1, rows_count+1):
+            row = list(' '*seats_per_row)
+            num = 0
+            for j in rows:
+                if j[1] == i:
+                    row[j[0]-1] = '.'
+                    num+=1
+            seats+=row
+            print('|' + "|".join(row) + '|')

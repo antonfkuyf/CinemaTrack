@@ -39,6 +39,19 @@ def get_by_id(ticket_id: int):
     conn.close()
     return _map(row) if row else None
 
+def get_seats_by_session(session_id: int):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT seat_number,
+               row_number
+        FROM Ticket
+        WHERE session_id = ?
+    """, (session_id,))
+    rows = cur.fetchall()
+    conn.close()
+    return sorted([r for r in rows], key=lambda x: (x[1], x[0]))
+
 def get_by_session_and_seat(session_id: int, row_number: int, seat_number: int):
     conn = get_connection()
     cur = conn.cursor()

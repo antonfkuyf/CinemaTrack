@@ -26,6 +26,18 @@ def purchase_ticket(user_id: int, session_id: int, row_number: int, seat_number:
 def get_user_tickets(user_id: int):
     return ticket_repository.get_by_user(user_id)
 
+def count_seats(session_id: int):
+    hall_id = session_repository.get_by_id(session_id).hall_id
+    rows_count = hall_repository.get_by_id(hall_id).rows_count
+    seats_per_row = hall_repository.get_by_id(hall_id).seats_per_row
+    count=0
+    for i in range(1, rows_count+1):
+        for j in range(1, seats_per_row+1):
+            existing = ticket_repository.get_by_session_and_seat(session_id, i, j)
+            if not existing:
+                count+=1
+    return count
+
 def refund_ticket(ticket_id: int):
     ticket = ticket_repository.get_by_id(ticket_id)
     if not ticket:

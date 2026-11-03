@@ -92,11 +92,8 @@ def purchase_ticket():
         if not choice_session:
             return
 
-        hall_id = session_repository.get_by_id(choice_session).hall_id
-        rows_count = hall_repository.get_by_id(hall_id).rows_count
-        seats_per_row = hall_repository.get_by_id(hall_id).seats_per_row
-        print(f"кол-во рядов: {rows_count}")
-        print(f"мест в ряду: {seats_per_row}")
+        console.show_seats(choice_session)
+
         row_number = int(input("Номер ряда: "))
         seat_number = int(input("Номер места: "))
 
@@ -255,7 +252,7 @@ def show_sessions_menu():
     global current_user
     console.print_menu([
         "Создать сеанс",
-        "Список сеансов",
+        "Сеансы",
         "Удалить сеанс",
     ])
     choice = console.get_choice(3)
@@ -273,7 +270,7 @@ def show_sessions_menu():
 def add_session():
     film_id = int(input("ID фильма: "))
     hall_id = int(input("ID зала: "))
-    start_time = input("Дата и время")
+    start_time = input("Дата и время: ")
     price = float(input("Цена билета: "))
     
     try:
@@ -286,6 +283,13 @@ def view_sessions():
     sessions = session_service.get_all_sessions()
     rows = [(s.session_id, s.film_id, s.hall_id, s.start_time, s.price) for s in sessions]
     console.show_table(["ID", "Фильм ID", "Зал ID", "Время", "Цена"], rows)
+    choice = console.get_choice_by_nums([r[0] for r in rows])
+    if not choice:
+        return
+    try:
+        console.show_seats(choice)
+    except Exception as e:
+        console.show_error(str(e))
 
 def delete_session():
     session_id = int(input("ID сеанса: "))
