@@ -50,6 +50,9 @@
     <Folder Include="ui\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+    <Content Include="CinemaTrack.slnx" />
     <Content Include="DB.db" />
     <Content Include="diagrams\ER.png" />
     <Content Include="diagrams\er.txt" />
