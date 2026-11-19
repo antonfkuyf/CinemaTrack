@@ -44,6 +44,7 @@
     <Folder Include="docs\" />
     <Folder Include="models\" />
     <Folder Include="models\__pycache__\" />
+    <Folder Include="out\" />
     <Folder Include="repositories\" />
     <Folder Include="services\" />
     <Folder Include="ui\" />
@@ -55,6 +56,10 @@
     <Content Include="docs\UseCase.png" />
     <Content Include="docs\use_case.puml" />
     <Content Include="models\__pycache__\models.cpython-315.pyc" />
+    <Content Include="out\data.csv" />
+    <Content Include="out\data.json" />
+    <Content Include="out\data.xml" />
+    <Content Include="out\data.yaml" />
     <Content Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
