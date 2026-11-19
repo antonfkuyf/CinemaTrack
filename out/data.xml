@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sessions>
+  <session>
+    <session_id>1</session_id>
+    <film_id>1</film_id>
+    <hall_id>1</hall_id>
+    <start_time>2022-12-31 22:10</start_time>
+    <price>99999.99</price>
+    <film>
+      <film_id>1</film_id>
+      <title>Cheburashka_2</title>
+      <duration>92</duration>
+    </film>
+    <hall>
+      <hall_id>1</hall_id>
+      <name>Hall_1</name>
+      <rows_count>15</rows_count>
+      <seats_per_row>10</seats_per_row>
+    </hall>
+  </session>
+  <session>
+    <session_id>2</session_id>
+    <film_id>2</film_id>
+    <hall_id>1</hall_id>
+    <start_time>2023-01-05 20:30</start_time>
+    <price>1000</price>
+    <film>
+      <film_id>2</film_id>
+      <title>Spider-Man:_Brand_New_Day</title>
+      <duration>145</duration>
+    </film>
+    <hall>
+      <hall_id>1</hall_id>
+      <name>Hall_1</name>
+      <rows_count>15</rows_count>
+      <seats_per_row>10</seats_per_row>
+    </hall>
+  </session>
+</sessions>

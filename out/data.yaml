@@ -1,0 +1,28 @@
+- session_id: 1
+  film_id: 1
+  hall_id: 1
+  start_time: 2022-12-31 22:10
+  price: 99999.99
+  film:
+    film_id: 1
+    title: Cheburashka_2
+    duration: 92
+  hall:
+    hall_id: 1
+    name: Hall_1
+    rows_count: 15
+    seats_per_row: 10
+- session_id: 2
+  film_id: 2
+  hall_id: 1
+  start_time: 2023-01-05 20:30
+  price: 1000
+  film:
+    film_id: 2
+    title: Spider-Man:_Brand_New_Day
+    duration: 145
+  hall:
+    hall_id: 1
+    name: Hall_1
+    rows_count: 15
+    seats_per_row: 10
