@@ -21,6 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="data\export.py" />
     <Compile Include="data\init_db.py" />
     <Compile Include="main.py" />
     <Compile Include="models\models.py" />
@@ -34,7 +35,6 @@
     <Compile Include="services\hall_service.py" />
     <Compile Include="services\session_service.py" />
     <Compile Include="services\ticket_service.py" />
-    <Compile Include="src\main.py" />
     <Compile Include="ui\console.py" />
     <Compile Include="ui\menu.py" />
   </ItemGroup>
@@ -46,7 +46,6 @@
     <Folder Include="models\__pycache__\" />
     <Folder Include="repositories\" />
     <Folder Include="services\" />
-    <Folder Include="src\" />
     <Folder Include="ui\" />
   </ItemGroup>
   <ItemGroup>
